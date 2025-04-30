@@ -125,6 +125,7 @@ class MMKV {
 
     bool doFullWriteBack(std::pair<mmkv::MMBuffer, size_t> preparedData, mmkv::AESCrypt *newCrypter);
 
+public:
     mmkv::MMBuffer getDataForKey(MMKVKey_t key);
 
     // isDataHolder: avoid memory copying
