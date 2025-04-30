@@ -258,6 +258,18 @@ void MiniPBCoder::decodeOneMap(MMKVMap &dic, size_t position, bool greedy) {
             const auto &key = m_inputData->readString(kvHolder);
             if (key.length() > 0) {
                 m_inputData->readData(kvHolder);
+
+                printf("holder, offset: %d, key size:%d [%s], value size: %d, computedKVSize: %d \n",
+                       kvHolder.offset,
+                       kvHolder.keySize,
+                       key.c_str(),
+                       kvHolder.valueSize,
+                       kvHolder.computedKVSize);
+
+                if ( key == "101") {
+                    printf("\n");
+                }
+
                 if (kvHolder.valueSize > 0) {
                     dictionary[key] = move(kvHolder);
                 } else {

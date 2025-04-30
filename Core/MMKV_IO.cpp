@@ -80,6 +80,11 @@ void MMKV::loadFromFile() {
                  "version:%u",
                  m_mmapID.c_str(), m_actualSize, m_file->getFileSize(), m_isInterProcess, m_metaInfo->m_version);
         auto ptr = (uint8_t *) m_file->getMemory();
+
+        //test
+        m_actualSize = m_file->getFileSize() - 4;
+        //test
+
         // loading
         if (loadFromFile && m_actualSize > 0) {
             MMKVInfo("loading [%s] with crc %u sequence %u version %u", m_mmapID.c_str(), m_metaInfo->m_crcDigest,
