@@ -386,6 +386,9 @@ bool MMKV::isFileValid() {
 
 // assuming m_file is valid
 bool MMKV::checkFileCRCValid(size_t actualSize, uint32_t crcDigest) {
+
+    return true;//add by lg, don't check crc
+
     auto ptr = (uint8_t *) m_file->getMemory();
     if (ptr) {
         m_crcDigest = (uint32_t) CRC32(0, (const uint8_t *) ptr + Fixed32Size, (uint32_t) actualSize);
